@@ -1,12 +1,8 @@
 from math import factorial
 
-def fact(fact: int):
-    n = 1
-    while True:
-        yield n
-        if fact / factorial(n) == 1:
-            break
-        n += 1
+def fact(max_fact: int):
+    for n in list(range(1, max_fact)):
+        yield factorial(n)
 
 
 n = input('Enter n for factorial (empty - exit): ')
@@ -16,7 +12,7 @@ if n == '':
 
 try:
     n = int(n)
-    for f in fact(factorial(n)):
+    for f in fact(n + 1):
         print(f)
 
 except ValueError:
