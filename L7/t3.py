@@ -26,11 +26,28 @@ class Cell:
     def __str__(self):
         return f'Cell: {self.__size}'
 
+    def make_order(self, n: int):
+        s = ''
+        s += ('*' * n + '\n') * int(self.__size / n)
+        s += ('*' * (self.__size - n * int(self.__size / n) ) + '\n')
+        return s
+
 
 c1 = Cell(7)
 c2 = Cell(5)
 
+print('c1+c2:')
 print(c1 + c2)
+print((c1 + c2).make_order(5))
+
+print('c1-c2:')
 print(c1 - c2)
+print((c1 - c2).make_order(5))
+
+print('c1*c2:')
 print(c1 * c2)
+print((c1 * c2).make_order(5))
+
+print('c1/c2:')
 print(c1 / c2)
+print((c1 / c2).make_order(5))
